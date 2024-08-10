@@ -14,7 +14,7 @@ public class Bot extends TelegramLongPollingBot {
 
     @Override
     public String getBotUsername() {
-        return "AlamegaBot";
+        return BotProperties.getProperty("BOT_NAME");
     }
 
     @Override
