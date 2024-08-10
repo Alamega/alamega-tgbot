@@ -7,6 +7,8 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 public class Main {
     public static void main(String[] args) throws TelegramApiException {
         TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
-        botsApi.registerBot(new Bot("TOKEN"));
+        Bot bot = new Bot(BotProperties.getProperty("TOKEN"));
+        botsApi.registerBot(bot);
+        bot.sendText(Long.parseLong(BotProperties.getProperty("OWNER")), "Я запустился");
     }
 }
