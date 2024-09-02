@@ -11,12 +11,18 @@ public class BotProperties {
         try (FileInputStream fileInputStream = new FileInputStream("config.properties")) {
             props.load(fileInputStream);
         } catch (IOException e) {
-            System.err.println("Error loading config file: " + e.getMessage());
+            System.err.println("Создайте файл \"config.properties\" и задайте в нем необходимые значения переменных.");
             System.exit(1);
         }
     }
 
     public static String getProperty(String key) {
-        return props.getProperty(key);
+        if (props.containsKey(key)) {
+            return props.getProperty(key);
+        } else {
+            System.err.println("Задайте значение переменной " + key + " в файле настроек.");
+            System.exit(1);
+            return null;
+        }
     }
 }

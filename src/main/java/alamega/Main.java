@@ -9,6 +9,7 @@ public class Main {
         TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
         Bot bot = new Bot(BotProperties.getProperty("TOKEN"));
         botsApi.registerBot(bot);
+        System.out.println("Я запустился");
         bot.sendText(Long.parseLong(BotProperties.getProperty("OWNER")), "Я запустился");
     }
 }
